@@ -53,6 +53,8 @@ function init() {
     newTilesElements[i].addEventListener("dragstart", dragstartTile);
     newTilesElements[i].addEventListener("dragend", dragendTile);
   }
+
+  newTilesButton.classList.remove("hover");
 }
 window.addEventListener("load", init);
 
@@ -85,6 +87,8 @@ function startNewGame() {
   for (let i = 0; i < markElements.length; i++) {
     markElements[i].classList.remove("check", "cross");
   }
+  newGameButton.classList.remove("hover");
+  newTilesButton.classList.add("hover");
 }
 
 // --------------------------------------------------
@@ -113,6 +117,7 @@ function getNewTiles() {
   }
   draggedElementsCount = 0; // Nollställer räknaren för element som dras från slumpade brickor
   newTilesButton.disabled = true; // Inaktiverar knappen för nya brickor
+  newTilesButton.classList.remove("hover");
 }
 
 // --------------------------------------------------
@@ -165,6 +170,7 @@ function moveTileToBox(e) {
     //  Aktiverar knappen när alla fyra brickor har dragits
     if (draggedElementsCount == 4) {
       newTilesButton.disabled = false;
+      newTilesButton.classList.add("hover");
     }
 
     dragElementsCount++; // Ökar antalet dragna element till tavlan
@@ -173,13 +179,15 @@ function moveTileToBox(e) {
       checkAnswers();
       countCorrectSeries();
       stopGame();
+      newGameButton.classList.add("hover");
+      newTilesButton.classList.remove("hover");
     }
   }
 
   // Hovereffekt när brickan dras över rutan
   if (this.innerHTML == "") {
     if (e.type == "dragover") {
-      this.style.backgroundColor = "#9c9";
+      this.style.backgroundColor = "#79e200";
     } else if (e.type == "dragleave") {
       this.style.backgroundColor = "";
     } else if (e.type == "drop") {

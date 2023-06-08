@@ -2,55 +2,99 @@
 
 /* Font for tiles */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+:root {
+  /* Variabler för de färger som används */
+  --light: #e2e2e2;
+  --light-green: #b2ff59;
+  --light-green-2: #79e200;
+  --white-blue: #e0f7fa;
+  --blue: #40c4ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  user-select: none;
+  background-color: var(--white-blue);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100vh;
+  /* user-select: none; */
+  height: 100vh;
+}
+
+header {
+  box-shadow: 5px 5px 10px #999, -5px 5px 10px #999;
+  margin-bottom: 10px;
+  font-size: 80%;
+}
+
+header h1 {
+  background-color: var(--blue);
+  color: var(--light);
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+main {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 #mainSection {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 4rem;
-}
-
-/* The box with total points and number of games */
-#userInfoSection {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  margin-left: 80px;
-}
-
-#userInfo {
-  background-color: rgb(234, 230, 221);
-  border: 3px solid #3e3e3e;
-  width: min-content;
-  white-space: nowrap;
-  text-align: right;
-  font-size: 1.5rem;
-  padding: 1rem;
-  margin: 1rem;
+  width: 80%;
+  margin-bottom: 6rem;
 }
 
 #descriptiveText {
   margin-top: 2rem;
   width: 80%;
   margin: 0 auto;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+button {
+  background: var(--light-green);
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.hover:hover {
+  background-color: var(--light-green-2);
 }
 
 #newGameBtnContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 3rem;
+}
+
+/* Game area */
+#gameSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 3rem;
 }
 
 /* Game board */
 #gameBoardSection {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 100%;
+  position: relative;
 }
 
 #board {
@@ -59,14 +103,18 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
-  margin: 1rem;
+  justify-content: left;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
+/* New tiles */
 #newTilesSection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
+  height: 100%;
 }
 
 #newTiles {
@@ -74,7 +122,41 @@ body {
   display: flex;
   flex-direction: row;
   gap: 4px;
-  margin: 1rem;
+}
+
+#newTilesBtn {
+  margin-top: 9rem;
+}
+
+/* Total points and number of games */
+#userInfoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+  height: 100%;
+  position: relative;
+}
+
+#userInfo {
+  background-color: var(--blue);
+  border: 2px dotted #3e3e3e;
+  width: min-content;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 1.5rem;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#message {
+  margin-top: 2rem;
+  font-size: 1.5em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 /* 
@@ -103,14 +185,14 @@ as well as the boxes for new tiles.
 
 .filled {
   /* Tile where the number appears */
-  border: 2px solid #600;
+  border: 2px solid rgb(90, 99, 255);
   background-color: #fff;
-  color: #980e0e;
+  color: var(--blue);
 }
 
 .check:before {
   content: "\02713"; /* Check mark */
-  color: #0c0;
+  color: #00cc00;
 }
 
 .cross:before {
@@ -118,8 +200,12 @@ as well as the boxes for new tiles.
   color: #c00;
 }
 
-#message {
-  padding: 2rem;
-  font-size: 1.5em;
-  text-align: center;
+footer {
+  background-color: var(--middle1);
+  box-shadow: 0px -5px 10px #999;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
 }

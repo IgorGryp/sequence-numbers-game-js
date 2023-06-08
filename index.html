@@ -3,87 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <title>Game</title>
-    <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="script.js"></script>
   </head>
 
   <body>
     <header>
-      <h1>Game</h1>
+      <h1>Create Sequences</h1>
     </header>
     <main>
-      <p id="descriptiveText">
-        Spelplanen består av 16 platser dit du ska dra brickor med siffror.
-        Målet är att i så många rader och kolumner som möjligt få stigande
-        serier, dvs för varje ruta ska siffran till höger eller under vara
-        större. Totalt finns det 40 brickor med talen 1 till 40. Ur dessa får du
-        fyra brickor i taget och ska dra dem till spelplanen. Du får 1 poäng för
-        varje rad eller kolumn som har en stigande serie. Du kan spela flera
-        gånger och på så sätt samla ihop fler poäng.
-      </p>
-
-      <div id="newGameBtnContainer">
-        <button type="button" id="newGameBtn">New game</button>
-      </div>
-
       <section id="mainSection">
-        <section id="gameBoardSection">
-          <!-- Game Board -->
-          <div id="board">
-            <div class="tile s1 s5 empty"></div>
-            <div class="tile s1 s6 empty"></div>
-            <div class="tile s1 s7 empty"></div>
-            <div class="tile s1 s8 empty"></div>
-            <div class="mark" id="s1mark"></div>
+        <p id="descriptiveText">
+          Draw tiles with numbers. The goal is to get ascending series in as
+          many rows and columns as possible. For each box, the number to above
+          or below must be greater. In total there are 40 tiles with the numbers
+          1 to 40. From these you get four tiles at a time and must drag them to
+          the playing field. You get 1 point for each row or column that has an
+          ascending series. You can play multiple times and thus accumulate more
+          points.
+        </p>
 
-            <div class="tile s2 s5 empty"></div>
-            <div class="tile s2 s6 empty"></div>
-            <div class="tile s2 s7 empty"></div>
-            <div class="tile s2 s8 empty"></div>
-            <div class="mark" id="s2mark"></div>
+        <div id="newGameBtnContainer">
+          <button type="button" id="newGameBtn" class="hover">New game</button>
+        </div>
 
-            <div class="tile s3 s5 empty"></div>
-            <div class="tile s3 s6 empty"></div>
-            <div class="tile s3 s7 empty"></div>
-            <div class="tile s3 s8 empty"></div>
-            <div class="mark" id="s3mark"></div>
+        <section id="gameSection">
+          <section id="gameBoardSection">
+            <!-- Game Board -->
+            <div id="board">
+              <div class="tile s1 s5 empty"></div>
+              <div class="tile s1 s6 empty"></div>
+              <div class="tile s1 s7 empty"></div>
+              <div class="tile s1 s8 empty"></div>
+              <div class="mark" id="s1mark"></div>
 
-            <div class="tile s4 s5 empty"></div>
-            <div class="tile s4 s6 empty"></div>
-            <div class="tile s4 s7 empty"></div>
-            <div class="tile s4 s8 empty"></div>
-            <div class="mark" id="s4mark"></div>
+              <div class="tile s2 s5 empty"></div>
+              <div class="tile s2 s6 empty"></div>
+              <div class="tile s2 s7 empty"></div>
+              <div class="tile s2 s8 empty"></div>
+              <div class="mark" id="s2mark"></div>
 
-            <div class="mark" id="s5mark"></div>
-            <div class="mark" id="s6mark"></div>
-            <div class="mark" id="s7mark"></div>
-            <div class="mark" id="s8mark"></div>
-          </div>
-        </section>
+              <div class="tile s3 s5 empty"></div>
+              <div class="tile s3 s6 empty"></div>
+              <div class="tile s3 s7 empty"></div>
+              <div class="tile s3 s8 empty"></div>
+              <div class="mark" id="s3mark"></div>
 
-        <section id="newTilesSection">
-          <!-- New tiles -->
-          <div id="newTiles">
-            <div class="tile empty"></div>
-            <div class="tile empty"></div>
-            <div class="tile empty"></div>
-            <div class="tile empty"></div>
-          </div>
+              <div class="tile s4 s5 empty"></div>
+              <div class="tile s4 s6 empty"></div>
+              <div class="tile s4 s7 empty"></div>
+              <div class="tile s4 s8 empty"></div>
+              <div class="mark" id="s4mark"></div>
 
-          <button type="button" id="newTilesBtn">New tiles</button>
-        </section>
+              <div class="mark" id="s5mark"></div>
+              <div class="mark" id="s6mark"></div>
+              <div class="mark" id="s7mark"></div>
+              <div class="mark" id="s8mark"></div>
+            </div>
+          </section>
 
-        <section id="userInfoSection">
-          <div id="userInfo">
-            <p>Total score: <span id="totPoints">0</span></p>
-            <p>Number of games: <span id="countGames">0</span></p>
-          </div>
+          <section id="newTilesSection">
+            <!-- New tiles -->
+            <div id="newTiles">
+              <div class="tile empty"></div>
+              <div class="tile empty"></div>
+              <div class="tile empty"></div>
+              <div class="tile empty"></div>
+            </div>
+
+            <button type="button" id="newTilesBtn" class="hover">
+              New tiles
+            </button>
+          </section>
+
+          <section id="userInfoSection">
+            <div id="userInfo">
+              <p>Total score: <span id="totPoints">0</span></p>
+              <p>Number of games: <span id="countGames">0</span></p>
+            </div>
+            <!-- User message -->
+            <div id="message"></div>
+          </section>
         </section>
       </section>
-
-      <!-- User message -->
-      <div id="message"></div>
     </main>
     <footer>
       <p>&copy; All rights reserved</p>
