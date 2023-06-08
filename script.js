@@ -6,6 +6,7 @@ const tiles = [
 
 let newGameButton; // Knappen för nytt spel
 let newTilesButton; // Knappen för nya brickor
+let resetButton;
 let newTilesElements; // Array för div-elementen där nya slumpade brickor ska skrivas ut
 let tilesElements; // Array för div-elementen som nya slumpade brickor ska dras till
 let tempTiles; // Array för kopia av arrayen med brickor/nummer
@@ -28,6 +29,7 @@ function init() {
   // Referenser till element i gränssnittet
   newGameButton = document.getElementById("newGameBtn"); // Knappen för nytt spel
   newTilesButton = document.getElementById("newTilesBtn"); // Knappen för nya brickor
+  resetButton = document.getElementById("resetBtn");
   totalPointsMessage = document.getElementById("totPoints"); // Element för meddelande med totalpong
   gameCountMessage = document.getElementById("countGames"); // Element för meddelande om antal spel
   resultMessage = document.getElementById("message"); // Element för meddelande med resultat
@@ -45,7 +47,7 @@ function init() {
   // Händelsehanterare
   newGameButton.addEventListener("click", startNewGame); // Då man klickar på knappen starts spelet
   newTilesButton.addEventListener("click", getNewTiles); // Då man klickar på knappen slumpas fram fyra brickor
-
+  resetButton.addEventListener("click", resetLocalStorage);
   newTilesButton.disabled = true; // Inaktiverar knappen för nya brickor
 
   // Går igenom alla newTilesElements och lägger på händelsehanterare och funktioner
@@ -60,14 +62,18 @@ window.addEventListener("load", init);
 
 // --------------------------------------------------
 
-// Spelet startas
+// Starts the game
 function startNewGame() {
-  correctSeriesCount = 0; // Nollställer antalet rätta serier
-  gameCount++; // Ökar antalet spelomgångar
-  gameCountMessage.innerHTML = gameCount; // Skriver ut antalet spelomgångar
+  resetAll();
+
   tempTiles = tiles.slice(); // Gör en kopia av arrayen med brickor/nummer
   newGameButton.disabled = true; // Inaktiverar knappen för nytt spel
   newTilesButton.disabled = false; // Aktiverar knappen för nya brickor
+}
+
+function resetAll() {
+  correctSeriesCount = 0; // Nollställer antalet rätta serier
+
   dragElementsCount = 0; // Nollställer antalet drag
   resultMessage.innerHTML = ""; // Rensar meddelande med resultat från den ena omgången
 
@@ -87,16 +93,10 @@ function startNewGame() {
   for (let i = 0; i < markElements.length; i++) {
     markElements[i].classList.remove("check", "cross");
   }
-  newGameButton.classList.remove("hover");
-  newTilesButton.classList.add("hover");
-}
-
-// --------------------------------------------------
-
-// Spelet avslutas
-function stopGame() {
   newGameButton.disabled = false; // Aktiverar knappen för nytt spel
   newTilesButton.disabled = true; // Inaktiverar knappen för nya brickor
+  newGameButton.classList.remove("hover");
+  newTilesButton.classList.add("hover");
 }
 
 // --------------------------------------------------
@@ -263,25 +263,29 @@ function countCorrectSeries() {
   for (let i = 0; i < markElements.length; i++) {
     if (markElements[i].classList.contains("check")) {
       correctSeriesCount++;
+      console.log(correctSeriesCount);
       totalPointsCount++;
+      console.log(totalPointsCount);
     }
   }
 
-  resultMessage.innerHTML = "Du fick " + correctSeriesCount + " poäng"; // Skriver ut antal poång
+  resultMessage.innerHTML = "You got " + correctSeriesCount + "  points!"; // Skriver ut antal poång
   totalPointsMessage.innerHTML = totalPointsCount; // Skriver ut det nya totalpoängen
+  gameCount++; // Ökar antalet spelomgångar
+  gameCountMessage.innerHTML = gameCount; // Skriver ut antalet spelomgångar
 
   toLocalStorage(); // Anropar funktionen för att spara data i localstorage
 }
 
 // --------------------------------------------------
 
-// Sparar data i localstorage
+// Saves data to Local Storage
 function toLocalStorage() {
   var value = [totalPointsCount, gameCount]; // Array med värden
   localStorage.setItem("ig222maUserInfo", JSON.stringify(value)); // Sparar array med värden
 }
 
-// Hämtar data från localstorage
+// Gets data from Local Storage
 function fromLocalStarage() {
   let value = JSON.parse(localStorage.getItem("ig222maUserInfo")); // Hämtar array med värden
 
@@ -292,4 +296,22 @@ function fromLocalStarage() {
 
   document.getElementById("totPoints").innerHTML = totalPointsCount; // Skriver ut totalpoäng från localstorage när spelet öppnas på nytt
   document.getElementById("countGames").innerHTML = gameCount; // Skriver ut antalet spelomgångar från localstorage när spelet öppnas på nytt
+}
+
+// Resets Local Storage
+function resetLocalStorage() {
+  localStorage.clear();
+  resetAll();
+  totalPointsCount = 0;
+  gameCount = 0;
+  document.getElementById("totPoints").innerHTML = 0; // Skriver ut totalpoäng från localstorage när spelet öppnas på nytt
+  document.getElementById("countGames").innerHTML = 0; // Skriver ut antalet spelomgångar från localstorage när spelet öppnas på nytt
+}
+
+// --------------------------------------------------
+
+// Spelet avslutas
+function stopGame() {
+  newGameButton.disabled = false; // Aktiverar knappen för nytt spel
+  newTilesButton.disabled = true; // Inaktiverar knappen för nya brickor
 }

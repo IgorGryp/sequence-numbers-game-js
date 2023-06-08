@@ -6,11 +6,16 @@
 
 :root {
   /* Variabler för de färger som används */
-  --light: #e2e2e2;
-  --light-green: #b2ff59;
+  --white: #ffffff;
+  --light-green-1: #b2ff59;
   --light-green-2: #79e200;
+  --green: #00cc00;
   --white-blue: #e0f7fa;
   --blue: #40c4ff;
+  --light-purple: #aaaacc;
+  --purple: #5a63ff;
+  --red: #cc0000;
+  --shadow: #999999;
 }
 
 * {
@@ -22,23 +27,50 @@
 body {
   background-color: var(--white-blue);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 100vh;
-  /* user-select: none; */
-  height: 100vh;
+  user-select: none;
 }
 
 header {
-  box-shadow: 5px 5px 10px #999, -5px 5px 10px #999;
+  box-shadow: 5px 5px 10px var(--shadow), -5px 5px 10px var(--shadow);
   margin-bottom: 10px;
   font-size: 80%;
+  height: 64px;
+  margin-bottom: 1rem;
+  background-color: var(--blue);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header h1 {
-  background-color: var(--blue);
-  color: var(--light);
+  color: var(--white);
   padding: 10px;
-  text-align: center;
-  margin-bottom: 1rem;
+}
+
+header button {
+  position: absolute;
+  top: 8px;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue);
+  border: none;
+}
+
+header img {
+  width: 48px;
+  transition: 0.5s;
+}
+
+header img:hover {
+  /* transform: scale(110%); */
+  transform: rotate(20deg);
+  transition: 0.5s;
 }
 
 main {
@@ -61,23 +93,29 @@ main {
   line-height: 1.4;
 }
 
-button {
-  background: var(--light-green);
-  border-radius: 10px;
-  font-size: 1rem;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.hover:hover {
-  background-color: var(--light-green-2);
-}
-
 #newGameBtnContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
+}
+
+#newGameBtn,
+#newTilesBtn {
+  background: var(--light-green-1);
+  border-radius: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#newTilesBtn {
+  margin-top: 8rem;
+}
+
+.hover:hover {
+  background-color: var(--light-green-2);
 }
 
 /* Game area */
@@ -124,10 +162,6 @@ button {
   gap: 4px;
 }
 
-#newTilesBtn {
-  margin-top: 9rem;
-}
-
 /* Total points and number of games */
 #userInfoSection {
   display: flex;
@@ -141,10 +175,11 @@ button {
 #userInfo {
   background-color: var(--blue);
   border: 2px dotted #3e3e3e;
-  width: min-content;
+  width: 284px;
   white-space: nowrap;
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--white);
   padding: 1rem;
   position: absolute;
   right: 0;
@@ -153,14 +188,17 @@ button {
 
 #message {
   margin-top: 2rem;
-  font-size: 1.5em;
+  font-size: 1.8em;
   position: absolute;
   right: 0;
   bottom: 0;
+  width: 284px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 /* 
-All squares on the playing field, incl. those where a chec or a cross is to be placed,
+All squares on the playing field, incl. those where a check or a cross is to be placed,
 as well as the boxes for new tiles.
 */
 #board div,
@@ -179,30 +217,29 @@ as well as the boxes for new tiles.
 /* Different classes for the squares */
 .empty {
   /* Empty space for a tile */
-  border: 2px solid #aac;
+  border: 3px solid var(--light-purple);
   background-color: transparent;
 }
 
 .filled {
   /* Tile where the number appears */
-  border: 2px solid rgb(90, 99, 255);
-  background-color: #fff;
+  border: 3px solid var(--purple);
+  background-color: var(--white);
   color: var(--blue);
 }
 
 .check:before {
   content: "\02713"; /* Check mark */
-  color: #00cc00;
+  color: var(--green);
 }
 
 .cross:before {
   content: "\02717"; /* Cross mark */
-  color: #c00;
+  color: var(--red);
 }
 
 footer {
-  background-color: var(--middle1);
-  box-shadow: 0px -5px 10px #999;
+  box-shadow: 0px -5px 10px var(--shadow);
   font-size: 1rem;
   display: flex;
   justify-content: center;
