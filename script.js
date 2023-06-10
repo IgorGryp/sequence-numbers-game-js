@@ -48,15 +48,15 @@ function init() {
   newGameButton.addEventListener("click", startNewGame); // Då man klickar på knappen starts spelet
   newTilesButton.addEventListener("click", getNewTiles); // Då man klickar på knappen slumpas fram fyra brickor
   resetButton.addEventListener("click", resetLocalStorage);
+
   newTilesButton.disabled = true; // Inaktiverar knappen för nya brickor
+  newTilesButton.classList.remove("hover");
 
   // Går igenom alla newTilesElements och lägger på händelsehanterare och funktioner
   for (let i = 0; i < newTilesElements.length; i++) {
     newTilesElements[i].addEventListener("dragstart", dragstartTile);
     newTilesElements[i].addEventListener("dragend", dragendTile);
   }
-
-  newTilesButton.classList.remove("hover");
 }
 window.addEventListener("load", init);
 
@@ -67,10 +67,17 @@ function startNewGame() {
   resetAll();
 
   tempTiles = tiles.slice(); // Gör en kopia av arrayen med brickor/nummer
+
   newGameButton.disabled = true; // Inaktiverar knappen för nytt spel
   newTilesButton.disabled = false; // Aktiverar knappen för nya brickor
+
+  newGameButton.classList.remove("hover");
+  newTilesButton.classList.add("hover");
 }
 
+// --------------------------------------------------
+
+// Resets all parameters
 function resetAll() {
   correctSeriesCount = 0; // Nollställer antalet rätta serier
 
@@ -95,8 +102,8 @@ function resetAll() {
   }
   newGameButton.disabled = false; // Aktiverar knappen för nytt spel
   newTilesButton.disabled = true; // Inaktiverar knappen för nya brickor
-  newGameButton.classList.remove("hover");
-  newTilesButton.classList.add("hover");
+  newGameButton.classList.add("hover");
+  newTilesButton.classList.remove("hover");
 }
 
 // --------------------------------------------------

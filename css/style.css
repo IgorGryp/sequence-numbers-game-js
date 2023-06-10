@@ -102,12 +102,14 @@ main {
 
 #newGameBtn,
 #newTilesBtn {
+  width: 164px;
   background: var(--light-green-1);
   border-radius: 10px;
   font-size: 1.6rem;
   font-weight: 700;
   padding: 1rem;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 #newTilesBtn {
@@ -115,7 +117,9 @@ main {
 }
 
 .hover:hover {
-  background-color: var(--light-green-2);
+  /* background-color: var(--light-green-2); */
+  transform: scale(105%);
+  transition: 0.5s;
 }
 
 /* Game area */
