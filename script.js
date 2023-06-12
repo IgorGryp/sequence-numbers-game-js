@@ -270,9 +270,7 @@ function countCorrectSeries() {
   for (let i = 0; i < markElements.length; i++) {
     if (markElements[i].classList.contains("check")) {
       correctSeriesCount++;
-      console.log(correctSeriesCount);
       totalPointsCount++;
-      console.log(totalPointsCount);
     }
   }
 
