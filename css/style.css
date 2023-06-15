@@ -253,7 +253,7 @@ footer {
 
 @media screen and (max-width: 1200px) {
   body {
-    height: 100%;
+    height: 100vh;
   }
   #gameBoardSection,
   #board,
@@ -286,7 +286,7 @@ footer {
 }
 @media screen and (max-width: 992px) {
   body {
-    height: 100%;
+    height: 100vh;
   }
   #board {
     width: 440px;
