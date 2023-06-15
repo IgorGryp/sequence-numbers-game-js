@@ -284,7 +284,7 @@ footer {
     flex-direction: column;
   }
 }
-/* @media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
   body {
     height: 100%;
   }
@@ -305,4 +305,4 @@ footer {
     justify-content: center;
     align-items: center;
   }
-} */
+}
