@@ -271,7 +271,7 @@ footer {
   }
   #userInfoSection {
     margin: 0 auto;
-    padding: 4rem;
+    padding: 8rem;
   }
   #newTilesBtn {
     margin-top: 4rem;
@@ -329,10 +329,18 @@ footer {
     cursor: pointer;
     transition: 0.5s;
   }
+  #userInfoSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: start;
+    height: 100%;
+    position: relative;
+  }
   #userInfo {
-  width: 340px;
-  white-space: nowrap;
-  text-align: right;
-  font-size: 1.8rem;
-}
+    width: 340px;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 1.8rem;
+  }
 }
