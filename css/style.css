@@ -287,15 +287,15 @@ footer {
 @media screen and (max-width: 992px) {
   header {
     height: 100px;
-    font-size: unset;
+    font-size: 1.6rem;
   }
   header button {
-    width: 64px;
-    height: 64px;
-    top: 18px;
+    width: 80px;
+    height: 80px;
+    top: 10px;
   }
   header img {
-    width: 64px;
+    width: 80px;
   }
   #descriptiveText {
     padding-top: 1.2rem;
