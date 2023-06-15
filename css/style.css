@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 /* Font for tiles */
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 :root {
   /* Variabler för de färger som används */
@@ -28,14 +28,13 @@ body {
   background-color: var(--white-blue);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   user-select: none;
+  height: 100vh;
 }
 
 header {
   box-shadow: 5px 5px 10px var(--shadow), -5px 5px 10px var(--shadow);
-  margin-bottom: 10px;
   font-size: 80%;
   height: 64px;
-  margin-bottom: 1rem;
   background-color: var(--blue);
   position: relative;
   display: flex;
@@ -77,6 +76,7 @@ main {
   padding: 10px;
   display: flex;
   justify-content: center;
+  height: calc(100% - 94px);
 }
 
 #mainSection {
@@ -85,10 +85,10 @@ main {
 }
 
 #descriptiveText {
-  margin-top: 2rem;
+  padding-top: 1.2rem;
   width: 80%;
   margin: 0 auto;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 1.2rem;
   line-height: 1.4;
 }
@@ -97,7 +97,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 #newGameBtn,
@@ -198,7 +198,7 @@ main {
   bottom: 0;
   width: 284px;
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /* 
@@ -233,12 +233,12 @@ as well as the boxes for new tiles.
 }
 
 .check:before {
-  content: "\02713"; /* Check mark */
+  content: '\02713'; /* Check mark */
   color: var(--green);
 }
 
 .cross:before {
-  content: "\02717"; /* Cross mark */
+  content: '\02717'; /* Cross mark */
   color: var(--red);
 }
 
