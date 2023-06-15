@@ -250,3 +250,59 @@ footer {
   align-items: center;
   height: 30px;
 }
+
+@media screen and (max-width: 1200px) {
+  body {
+    height: 100%;
+  }
+  #gameBoardSection,
+  #board,
+  #userInfoSection,
+  #userInfo,
+  #message,
+  #gameSection {
+    position: unset;
+  }
+  #mainSection {
+    width: 100%;
+  }
+  #board {
+    margin-right: -88px;
+  }
+  #userInfoSection {
+    margin: 0 auto;
+    padding: 4rem;
+  }
+  #newTilesBtn {
+    margin-top: 4rem;
+  }
+  #newTilesSection {
+    padding-top: 4rem;
+  }
+  #gameSection {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* @media screen and (max-width: 992px) {
+  body {
+    height: 100%;
+  }
+  #board {
+    width: 440px;
+    gap: 4px;
+    margin-right: -108px;
+  }
+  #board div,
+  #newTiles div {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 80px;
+    height: 80px;
+    font-family: Fredoka One;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} */
