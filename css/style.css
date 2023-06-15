@@ -285,6 +285,18 @@ footer {
   }
 }
 @media screen and (max-width: 992px) {
+  header {
+    height: 100px;
+    font-size: unset;
+  }
+  header button {
+    width: 64px;
+    height: 64px;
+    top: 18px;
+  }
+  header img {
+    width: 64px;
+  }
   #descriptiveText {
     padding-top: 1.2rem;
     width: 80%;
