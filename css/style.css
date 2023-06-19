@@ -67,13 +67,11 @@ header img {
 }
 
 header img:hover {
-  /* transform: scale(110%); */
   transform: rotate(20deg);
   transition: 0.5s;
 }
 
 main {
-  padding: 10px;
   display: flex;
   justify-content: center;
   height: calc(100% - 94px);
@@ -85,7 +83,7 @@ main {
 }
 
 #descriptiveText {
-  padding-top: 1.2rem;
+  padding-top: 2rem;
   width: 80%;
   margin: 0 auto;
   font-family: 'Josefin Sans', sans-serif;
@@ -117,7 +115,6 @@ main {
 }
 
 .hover:hover {
-  /* background-color: var(--light-green-2); */
   transform: scale(105%);
   transition: 0.5s;
 }
@@ -160,7 +157,6 @@ main {
 }
 
 #newTiles {
-  width: min-content;
   display: flex;
   flex-direction: row;
   gap: 4px;
@@ -251,6 +247,8 @@ footer {
   height: 30px;
 }
 
+/* -------------------------------------------------- */
+
 @media screen and (max-width: 1200px) {
   body {
     height: 100%;
@@ -287,6 +285,8 @@ footer {
 @media screen and (max-width: 992px) {
   header {
     height: 100px;
+  }
+  header h1 {
     font-size: 2rem;
   }
   header button {
@@ -297,28 +297,15 @@ footer {
   header img {
     width: 80px;
   }
-  #descriptiveText {
-    padding-top: 1.2rem;
-    width: 80%;
-    font-size: 2rem;
-    line-height: 1.4;
-  }
   #board {
-    width: 740px;
+    width: 420px;
     gap: 4px;
-    margin-right: -168px;
+    margin-right: -86px;
   }
   #board div,
   #newTiles div {
-    flex-shrink: 0;
-    flex-grow: 0;
-    width: 140px;
-    height: 140px;
-    font-family: Fredoka One;
-    font-size: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 80px;
+    height: 80px;
   }
   #newGameBtn,
   #newTilesBtn {
@@ -326,21 +313,101 @@ footer {
     font-size: 2rem;
     font-weight: 700;
     padding: 1rem;
-    cursor: pointer;
-    transition: 0.5s;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    height: 80px;
+  }
+  header button {
+    width: 58px;
+    height: 58px;
+    top: 11px;
+    right: 1rem;
+  }
+  header img {
+    width: 58px;
+  }
+  #newGameBtn,
+  #newTilesBtn {
+    width: 170px;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  header {
+    height: 60px;
+  }
+  header h1 {
+    font-size: 1.6rem;
+  }
+  header button {
+    width: 46px;
+    height: 46px;
+    top: 7px;
+  }
+  header img {
+    width: 46px;
+  }
+  #newGameBtn,
+  #newTilesBtn {
+    width: 150px;
+    font-size: 1.4rem;
+  }
+  #board {
+    width: 340px;
+    margin-right: -66px;
+  }
+  #board div,
+  #newTiles div {
+    width: 64px;
+    height: 64px;
   }
   #userInfoSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: start;
-    height: 100%;
-    position: relative;
+    padding: 4rem 0rem;
+    width: 240px;
   }
   #userInfo {
-    width: 380px;
-    white-space: nowrap;
-    text-align: right;
-    font-size: 2rem;
+    width: 240px;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+  #newGameBtn,
+  #newTilesBtn {
+    width: 132px;
+    font-size: 1.2rem;
+  }
+  #descriptiveText {
+    width: 90%;
+    font-size: 1rem;
+  }
+  #userInfoSection {
+    width: 210px;
+  }
+  #userInfo {
+    width: 210px;
+    font-size: 1rem;
+  }
+  #message {
+    font-size: 1rem;
+    width: 240px;
+  }
+}
+@media screen and (max-width: 425px) {
+  header button {
+    right: 0.5rem;
+  }
+  #board {
+    width: 280px;
+    margin-right: -56px;
+  }
+  #board div,
+  #newTiles div {
+    width: 52px;
+    height: 52px;
   }
 }
