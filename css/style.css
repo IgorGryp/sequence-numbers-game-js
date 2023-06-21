@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 :root {
-  /* Variabler för de färger som används */
   --white: #ffffff;
   --light-green-1: #b2ff59;
   --light-green-2: #79e200;
@@ -198,7 +197,7 @@ main {
 }
 
 /* 
-All squares on the playing field, incl. those where a check or a cross is to be placed,
+All squares, incl. those where a check or a cross is to be placed,
 as well as the boxes for new tiles.
 */
 #board div,
@@ -251,7 +250,7 @@ footer {
 
 @media screen and (min-width: 1600px) {
   #mainSection {
-    width: 60%
+    width: 60%;
   }
 }
 @media screen and (max-width: 1200px) {

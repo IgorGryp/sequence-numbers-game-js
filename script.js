@@ -24,7 +24,7 @@ let draggedElementsCount = 0; // Number of moves from squares with random tiles
 // --------------------------------------------------
 
 function init() {
-  fromLocalStarage();
+  fromLocalStarage(); // Retrieves data from Local storage
 
   // References to elements in the interface
   newGameButton = document.getElementById('newGameBtn');
