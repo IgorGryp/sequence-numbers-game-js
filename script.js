@@ -275,12 +275,12 @@ function countCorrectSeries() {
 // Saves data to Local Storage
 function toLocalStorage() {
   var value = [totalPointsCount, gameCount];
-  localStorage.setItem('ig222maUserInfo', JSON.stringify(value));
+  localStorage.setItem('data', JSON.stringify(value));
 }
 
 // Gets data from Local Storage
 function fromLocalStarage() {
-  let value = JSON.parse(localStorage.getItem('ig222maUserInfo'));
+  let value = JSON.parse(localStorage.getItem('data'));
 
   if (value != null) {
     totalPointsCount = Number(value[0]); // Total points from localstorage
