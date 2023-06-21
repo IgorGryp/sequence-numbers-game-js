@@ -249,6 +249,11 @@ footer {
 
 /* -------------------------------------------------- */
 
+@media screen and (min-width: 1600px) {
+  #mainSection {
+    width: 60%
+  }
+}
 @media screen and (max-width: 1200px) {
   body {
     height: 100%;
@@ -394,7 +399,7 @@ footer {
   }
   #message {
     font-size: 1rem;
-    width: 240px;
+    width: 210px;
   }
 }
 @media screen and (max-width: 425px) {
@@ -409,5 +414,6 @@ footer {
   #newTiles div {
     width: 52px;
     height: 52px;
+    font-size: 28px;
   }
 }
