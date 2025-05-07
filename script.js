@@ -1,7 +1,7 @@
 // Global constants and  och variables
 const tiles = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
-  28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
 ]; // Array with 40 tiles
 
 let newGameButton; // New game button
@@ -24,7 +24,7 @@ let draggedElementsCount = 0; // Number of moves from squares with random tiles
 // --------------------------------------------------
 
 function init() {
-  fromLocalStarage(); // Retrieves data from Local storage
+  fromLocalStorage(); // Retrieves data from Local storage
 
   // References to elements in the interface
   newGameButton = document.getElementById('newGameBtn');
@@ -34,9 +34,15 @@ function init() {
   gameCountMessage = document.getElementById('countGames');
   resultMessage = document.getElementById('message');
 
-  newTilesElements = document.getElementById('newTiles').getElementsByClassName('tile'); // Array of elements for printing new tiles
-  tilesElements = document.getElementById('board').getElementsByClassName('tile'); // Array of elements to which new tiles should be drawn
-  markElements = document.getElementById('board').getElementsByClassName('mark'); // Array with elements for marking right/wrong answers
+  newTilesElements = document
+    .getElementById('newTiles')
+    .getElementsByClassName('tile'); // Array of elements for printing new tiles
+  tilesElements = document
+    .getElementById('board')
+    .getElementsByClassName('tile'); // Array of elements to which new tiles should be drawn
+  markElements = document
+    .getElementById('board')
+    .getElementsByClassName('mark'); // Array with elements for marking right/wrong answers
 
   // Event handlers
   newGameButton.addEventListener('click', startNewGame); // When you click the button, the game starts
@@ -227,7 +233,16 @@ function checkAnswers() {
   let s8mark = document.getElementById('s8mark'); // Box for check or cross - columns
 
   const rowsAndColumns = [s1, s2, s3, s4, s5, s6, s7, s8]; // Array with rows and columns
-  const markBoxes = [s1mark, s2mark, s3mark, s4mark, s5mark, s6mark, s7mark, s8mark]; // Array with mark boxes
+  const markBoxes = [
+    s1mark,
+    s2mark,
+    s3mark,
+    s4mark,
+    s5mark,
+    s6mark,
+    s7mark,
+    s8mark,
+  ]; // Array with mark boxes
 
   // Calls the function to check ascending series
   for (let i = 0; i < rowsAndColumns.length; i++) {
@@ -239,7 +254,9 @@ function checkAnswers() {
   // Checks ascending series and marks with a check or a cross
   function isIncreasing(series, mark) {
     for (let i = 1; i < series.length; i++) {
-      if (parseFloat(series[i].innerHTML) > parseFloat(series[i - 1].innerHTML)) {
+      if (
+        parseFloat(series[i].innerHTML) > parseFloat(series[i - 1].innerHTML)
+      ) {
         mark.classList.add('check');
       } else {
         // If the number is less than the previous one, the check class is removed and the loop is terminated
@@ -279,7 +296,7 @@ function toLocalStorage() {
 }
 
 // Gets data from Local Storage
-function fromLocalStarage() {
+function fromLocalStorage() {
   let value = JSON.parse(localStorage.getItem('data'));
 
   if (value != null) {
